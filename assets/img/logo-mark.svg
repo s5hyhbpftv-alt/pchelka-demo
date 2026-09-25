@@ -6,7 +6,6 @@
     .ant-l { transform-origin: 78px 48px; animation: ant .9s ease-in-out infinite alternate; }
     .ant-r { transform-origin: 112px 46px; animation: ant .9s ease-in-out infinite alternate-reverse; }
     .needle { transform-origin: 158px 108px; animation: needle 2.6s ease-in-out infinite; }
-    .lid { transform-box: fill-box; transform-origin: center; transform: scaleY(0); animation: blink 3.8s ease-in-out infinite; }
     @keyframes bee-float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-7px); }
@@ -27,12 +26,8 @@
       0%, 100% { transform: rotate(-2deg); }
       50% { transform: rotate(3deg); }
     }
-    @keyframes blink {
-      0%, 42%, 50%, 100% { transform: scaleY(0); }
-      46% { transform: scaleY(1); }
-    }
     @media (prefers-reduced-motion: reduce) {
-      .bee, .wing-l, .wing-r, .ant-l, .ant-r, .needle, .lid { animation: none; }
+      .bee, .wing-l, .wing-r, .ant-l, .ant-r, .needle { animation: none; }
     }
   </style>
   <g class="bee" fill="none" stroke="#1c1917" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
@@ -88,8 +83,6 @@
     <circle cx="116" cy="76" r="4.2" fill="#1c1917" stroke="none"/>
     <circle cx="83.6" cy="76.4" r="1.4" fill="#fff" stroke="none"/>
     <circle cx="117.6" cy="74.4" r="1.4" fill="#fff" stroke="none"/>
-    <ellipse class="lid" cx="80" cy="76" rx="11" ry="13" fill="#ffc42e" stroke="none"/>
-    <ellipse class="lid" cx="114" cy="74" rx="11" ry="13" fill="#ffc42e" stroke="none"/>
     <path d="M84 94 Q96 104 110 92" stroke-width="3.4"/>
     <ellipse cx="66" cy="90" rx="7" ry="4" fill="#ffb4a2" stroke="none" opacity=".9"/>
     <ellipse cx="126" cy="88" rx="7" ry="4" fill="#ffb4a2" stroke="none" opacity=".9"/>
