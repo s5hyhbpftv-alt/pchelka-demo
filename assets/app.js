@@ -1369,6 +1369,25 @@
           }
         }
         ctx.putImageData(frame, 0, 0);
+        var w = canvas.width, h = canvas.height, top = h, bot = 0, y, x, c, best = 0, seat = 0;
+        var rows = new Uint16Array(h);
+        for (y = 0; y < h; y++) {
+          c = 0;
+          var row = y * w * 4;
+          for (x = row + 3; x < row + w * 4; x += 4) if (d[x] > 40) c++;
+          rows[y] = c;
+          if (c > 8) { if (y < top) top = y; bot = y; }
+        }
+        if (bot > top + 10) {
+          var a = top + ((bot - top) * 0.36 | 0);
+          var b = top + ((bot - top) * 0.58 | 0);
+          for (y = a; y < b; y++) if (rows[y] > best) { best = rows[y]; seat = y; }
+          seat = Math.min(h - 1, seat + ((bot - top) * 0.04 | 0));
+          var prev = canvas._seat || seat;
+          seat = prev * 0.82 + seat * 0.18;
+          canvas._seat = seat;
+          canvas.style.transform = 'translate(-50%,' + (-100 * seat / h).toFixed(1) + '%)';
+        }
       }
       requestAnimationFrame(paint);
     }
@@ -1391,7 +1410,7 @@
         s.className = 'wm-letter';
         s.textContent = text.charAt(i);
         el.appendChild(s);
-        var file = i === 0 ? 'img/sit-red.mp4?v=sit2' : (i === text.length - 1 ? 'img/sit-bee.mp4?v=sit2' : '');
+        var file = i === 0 ? 'img/sit-red.mp4?v=sit3' : (i === text.length - 1 ? 'img/sit-bee.mp4?v=sit3' : '');
         if (!file) continue;
         var video = document.createElement('video');
         video.className = 'floor-src';
@@ -1408,7 +1427,6 @@
         canvas.setAttribute('aria-hidden', 'true');
         s.appendChild(canvas);
         document.body.appendChild(video);
-        if (i !== 0) video.addEventListener('loadeddata', function () { try { video.currentTime = 1.6; } catch (e) {} });
         keyOnto(video, canvas);
       }
     });

@@ -5681,10 +5681,10 @@ to {
 .letter-girl {
   position:absolute;
   left:50%;
-  top:0;
-  width:.78em;
+  top:.08em;
+  width:.92em;
   height:auto;
-  transform:translate(-50%, -50%);
+  transform:translate(-50%, -55%);
   pointer-events:none;
   z-index:4}
 .mantality-footer-wordmark { overflow:visible }
