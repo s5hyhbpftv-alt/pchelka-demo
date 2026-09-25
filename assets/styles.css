@@ -5157,17 +5157,16 @@ header.site-header .site-header-menu {
   pointer-events:none}
 .floor-friends {
   position:fixed;
-  left:0;
+  left:50%;
   bottom:0;
   z-index:60;
-  width:min(460px, 78vw);
+  width:min(720px, 96vw);
   height:auto;
   pointer-events:none;
-  animation:floor-run 18s linear infinite}
-@keyframes floor-run {
-  from { transform:translateX(-110%) }
-  to { transform:translateX(100vw) }
-}
+  opacity:0;
+  transform:translate(-50%, 8px);
+  transition:opacity .35s ease}
+.floor-friends.is-on { opacity:1 }
 .site-header-menu a {
   white-space:nowrap;
   border-radius:999px;

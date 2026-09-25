@@ -1291,25 +1291,28 @@
 
   function setupChase() {
     if (reduced) return;
+    var cards = document.querySelectorAll('.mantality-orbit-cta');
+    if (!cards.length) return;
     var base = assetBase();
     var video = document.createElement('video');
     video.className = 'floor-src';
     video.muted = true;
     video.loop = true;
-    video.autoplay = true;
     video.playsInline = true;
     video.setAttribute('playsinline', '');
-    video.src = base + 'img/floor-friends.mp4?v=floor';
+    video.preload = 'none';
+    video.src = base + 'img/floor-play.mp4?v=play';
     var canvas = document.createElement('canvas');
     canvas.className = 'floor-friends';
     canvas.setAttribute('aria-hidden', 'true');
-    canvas.width = 480;
-    canvas.height = 270;
+    canvas.width = 640;
+    canvas.height = 360;
     document.body.appendChild(video);
     document.body.appendChild(canvas);
     var ctx = canvas.getContext('2d', { willReadFrequently: true });
+    var on = false;
     function paint() {
-      if (video.readyState >= 2) {
+      if (on && video.readyState >= 2) {
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
         var frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
         var d = frame.data;
@@ -1326,7 +1329,26 @@
       }
       requestAnimationFrame(paint);
     }
-    video.addEventListener('canplay', function () { video.play()["catch"](function () {}); });
+    function setOn(next) {
+      if (next === on) return;
+      on = next;
+      canvas.classList.toggle('is-on', on);
+      if (on) video.play()["catch"](function () {});
+      else video.pause();
+    }
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          e.target.setAttribute('data-girls', e.isIntersecting ? '1' : '0');
+        });
+        var show = false;
+        Array.prototype.forEach.call(cards, function (card) {
+          if (card.getAttribute('data-girls') === '1') show = true;
+        });
+        setOn(show);
+      }, { threshold: 0.35 });
+      Array.prototype.forEach.call(cards, function (card) { io.observe(card); });
+    }
     paint();
   }
 
