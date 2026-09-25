@@ -1306,7 +1306,7 @@
           }
         }
         ctx.putImageData(frame, 0, 0);
-        canvas.style.transform = 'translate(-50%, -10%)';
+        canvas.style.transform = 'translate(-50%, -26%)';
       }
       requestAnimationFrame(paint);
     }
@@ -1329,7 +1329,7 @@
         s.className = 'wm-letter';
         s.textContent = text.charAt(i);
         el.appendChild(s);
-        var file = i === 0 ? 'img/sit-red.mp4?v=sit3' : (i === text.length - 1 ? 'img/sit-bee.mp4?v=sit3' : '');
+        var file = i === text.length - 1 ? 'img/sit-bee.mp4?v=sit4' : '';
         if (!file) continue;
         var video = document.createElement('video');
         video.className = 'floor-src';
