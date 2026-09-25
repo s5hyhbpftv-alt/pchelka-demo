@@ -5525,7 +5525,25 @@ to {
   margin:10px 0 0;
   font-size:11px}
 .pricing-hero-wrap {
-  background:linear-gradient(#1c234099,#1c2340e0),url(img/hero.jpg) center/cover}
+  position:relative;
+  background:#1c2340}
+.pricing-hero-video {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0}
+.pricing-hero-wrap::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(#1c234066,#1c2340c7)}
+.pricing-hero {
+  position:relative;
+  z-index:1}
 .articles-page .archive-intro {
   background:linear-gradient(#1c2340a6,#1c2340cc),url(works/shkolnaya-forma-1.jpg) center 30%/cover}
 
