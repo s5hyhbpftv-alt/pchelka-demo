@@ -5702,6 +5702,16 @@ header.site-header-hero .logo-dot {
 .net-hero .service-hero-copy,.net-hero .service-facts {
   position:relative;
   z-index:1}
+.service-hero-film::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(#3a406666,#3a4068cc)}
+.service-hero-film .service-hero-copy,.service-hero-film .service-facts {
+  position:relative;
+  z-index:1}
 .service-hero-copy {
   max-width:760px}
 .service-hero h1 {
