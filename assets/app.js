@@ -1291,16 +1291,43 @@
 
   function setupChase() {
     if (reduced) return;
-    var menu = document.querySelector('.site-header-menu');
-    if (!menu || menu.querySelector('.menu-chase')) return;
     var base = assetBase();
-    var track = document.createElement('div');
-    track.className = 'menu-chase';
-    track.setAttribute('aria-hidden', 'true');
-    track.innerHTML =
-      '<video class="chase chase-lead" autoplay muted loop playsinline src="' + base + 'img/chase-red.webm?v=run"></video>' +
-      '<video class="chase chase-follow" autoplay muted loop playsinline src="' + base + 'img/chase-bee.webm?v=run"></video>';
-    menu.appendChild(track);
+    var video = document.createElement('video');
+    video.className = 'floor-src';
+    video.muted = true;
+    video.loop = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.setAttribute('playsinline', '');
+    video.src = base + 'img/floor-friends.mp4?v=floor';
+    var canvas = document.createElement('canvas');
+    canvas.className = 'floor-friends';
+    canvas.setAttribute('aria-hidden', 'true');
+    canvas.width = 480;
+    canvas.height = 270;
+    document.body.appendChild(video);
+    document.body.appendChild(canvas);
+    var ctx = canvas.getContext('2d', { willReadFrequently: true });
+    function paint() {
+      if (video.readyState >= 2) {
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        var frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var d = frame.data;
+        for (var i = 0; i < d.length; i += 4) {
+          var r = d[i], g = d[i + 1], b = d[i + 2];
+          var maxRB = r > b ? r : b;
+          if (g > 110 && g > maxRB + 36) {
+            var spill = g - maxRB;
+            d[i + 3] = spill > 80 ? 0 : 255 - spill * 3;
+            if (d[i + 1] > maxRB) d[i + 1] = maxRB;
+          }
+        }
+        ctx.putImageData(frame, 0, 0);
+      }
+      requestAnimationFrame(paint);
+    }
+    video.addEventListener('canplay', function () { video.play()["catch"](function () {}); });
+    paint();
   }
 
   function init() {

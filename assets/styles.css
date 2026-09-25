@@ -5149,6 +5149,25 @@ header.site-header .site-header-menu {
 @media (max-width:860px) {
   .menu-chase { display:none }
 }
+.floor-src {
+  position:fixed;
+  width:2px;
+  height:2px;
+  opacity:0;
+  pointer-events:none}
+.floor-friends {
+  position:fixed;
+  left:0;
+  bottom:0;
+  z-index:60;
+  width:min(460px, 78vw);
+  height:auto;
+  pointer-events:none;
+  animation:floor-run 18s linear infinite}
+@keyframes floor-run {
+  from { transform:translateX(-110%) }
+  to { transform:translateX(100vw) }
+}
 .site-header-menu a {
   white-space:nowrap;
   border-radius:999px;
