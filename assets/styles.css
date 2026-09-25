@@ -5121,13 +5121,30 @@ header.site-header .site-header-menu {
   height:62px;
   width:auto;
   left:-52px;
-  animation:menu-chase 12s linear infinite}
+  animation:menu-run 11s linear infinite, menu-bob .38s ease-in-out infinite}
+.menu-chase .chase-lead {
+  animation:menu-run 11s linear infinite, menu-bob .36s ease-in-out infinite, menu-spin 11s ease-in-out infinite}
 .menu-chase .chase-follow {
   height:56px;
-  animation-delay:2.8s}
-@keyframes menu-chase {
+  animation:menu-chase-follow 11s linear infinite, menu-bob .3s ease-in-out infinite}
+@keyframes menu-run {
   from { left:-52px }
   to { left:calc(100% + 8px) }
+}
+@keyframes menu-chase-follow {
+  0% { left:-96px }
+  50% { left:22% }
+  74% { left:58% }
+  100% { left:calc(100% + 8px) }
+}
+@keyframes menu-bob {
+  0%, 100% { transform:translateY(0) }
+  50% { transform:translateY(-6px) }
+}
+@keyframes menu-spin {
+  0%, 58% { rotate:0deg }
+  72% { rotate:360deg }
+  100% { rotate:0deg }
 }
 @media (max-width:860px) {
   .menu-chase { display:none }
