@@ -5677,10 +5677,18 @@ to {
   padding-left:.1em;
   font-size:.085em;
   font-weight:600}
-.wordmark-name {
-  letter-spacing:-.065em;
-  line-height:1;
-  display:block}
+.wordmark-name { position:relative }
+.wm-letter { position:relative }
+.letter-girl {
+  position:absolute;
+  left:50%;
+  bottom:46%;
+  width:1.7em;
+  height:auto;
+  transform:translateX(-50%);
+  pointer-events:none;
+  z-index:4}
+.mantality-footer-wordmark { overflow:visible }
 .mantality-footer-wordmark sup {
   justify-self:end;
   padding-right:.1em}
