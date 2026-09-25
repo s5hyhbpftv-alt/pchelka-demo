@@ -4759,6 +4759,31 @@ footer.mantality-footer {
   border-radius:24px;
   margin:0 16px;
   padding:70px 24px 64px}
+.coaches-hero-film {
+  position:relative;
+  overflow:hidden;
+  color:var(--base);
+  text-align:left;
+  min-height:560px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:48px clamp(24px,5vw,72px) 40px}
+.coaches-hero-film::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(#1c234033,#1c2340c2)}
+.coaches-hero-film > :not(video) {
+  position:relative;
+  z-index:1}
+.coaches-hero-film .eyebrow {
+  justify-content:flex-start}
+.coaches-hero-film p {
+  color:#ffffffd6;
+  max-width:640px}
 .coaches-hero>.mantality-brand-symbol {
   width:48px;
   height:48px;
