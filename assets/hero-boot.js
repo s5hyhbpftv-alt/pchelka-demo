@@ -3,7 +3,7 @@
 
   var css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = 'assets/hero-motion.css?v=motion-6';
+  css.href = 'assets/hero-motion.css?v=motion-7';
   document.head.appendChild(css);
 
   function arm(video) {
@@ -14,7 +14,7 @@
     video.defaultMuted = true;
     video.loop = true;
     video.playsInline = true;
-    video.preload = 'auto';
+    video.preload = 'metadata';
     video.playbackRate = MOTION.rate;
     video.setAttribute('autoplay', '');
     video.setAttribute('muted', '');
@@ -60,9 +60,9 @@
     var img = visual.querySelector('img.hero-photo');
     var video = document.createElement('video');
     video.className = 'hero-photo hero-video';
-    video.poster = 'assets/img/hero.jpg';
+    video.poster = 'assets/img/hero-poster.jpg';
     var source = document.createElement('source');
-    source.src = 'assets/img/hero.mp4?v=hero-live-2';
+    source.src = 'assets/img/hero.mp4?v=hero-opt';
     source.type = 'video/mp4';
     video.appendChild(source);
     visual.insertBefore(video, visual.firstChild);
