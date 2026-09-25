@@ -3,7 +3,7 @@
 
   var css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = 'assets/hero-motion.css?v=motion-3';
+  css.href = 'assets/hero-motion.css?v=motion-4';
   document.head.appendChild(css);
 
   var visual = document.querySelector('.hero-visual');
@@ -26,7 +26,13 @@
   video.appendChild(source);
   visual.insertBefore(video, visual.firstChild);
   if (img) img.classList.add('hero-photo-fallback');
-  video.addEventListener('error', function () { video.style.display = 'none'; });
+  video.addEventListener('playing', function () {
+    visual.classList.add('is-playing');
+  });
+  video.addEventListener('error', function () {
+    video.style.display = 'none';
+    visual.classList.remove('is-playing');
+  });
   function play() {
     video.playbackRate = MOTION.rate;
     var pending = video.play();

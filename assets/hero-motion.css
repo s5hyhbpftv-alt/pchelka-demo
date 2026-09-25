@@ -19,7 +19,7 @@
 }
 
 .hero-visual .hero-video {
-  z-index: 0;
+  z-index: 1;
   object-position: center 48%;
   transform-origin: 46% 38%;
   animation: heroKenBurns var(--hero-drift) ease-in-out infinite alternate;
@@ -29,6 +29,10 @@
   z-index: 0;
   transform-origin: 58% 42%;
   animation: heroKenBurns 28s ease-in-out infinite alternate;
+}
+
+.hero-visual.is-playing .hero-photo-fallback {
+  visibility: hidden;
 }
 
 .hero-visual .photo-shade {
