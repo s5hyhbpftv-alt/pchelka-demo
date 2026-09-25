@@ -5126,7 +5126,7 @@ header.site-header .site-header-menu {
   animation:menu-run 11s linear infinite, menu-bob .36s ease-in-out infinite, menu-spin 11s ease-in-out infinite}
 .menu-chase .chase-follow {
   height:56px;
-  animation:menu-chase-follow 11s linear infinite, menu-bob .3s ease-in-out infinite}
+  animation:menu-chase-follow 11s ease-in-out infinite, menu-bob .3s ease-in-out infinite}
 @keyframes menu-run {
   from { left:-52px }
   to { left:calc(100% + 8px) }
