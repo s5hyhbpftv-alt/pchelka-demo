@@ -1203,83 +1203,6 @@
     requestAnimationFrame(frame);
   }
 
-  function setupHeaderBee() {
-    var header = document.querySelector('header.site-header');
-    var logo = header && header.querySelector('.logo');
-    var phone = header && header.querySelector('a.site-sign-in');
-    if (!header || !logo || !phone || header.querySelector('.header-bee')) return;
-    var bee = document.createElement('img');
-    bee.className = 'header-bee';
-    bee.alt = '';
-    bee.setAttribute('aria-hidden', 'true');
-    var app = document.querySelector('script[src*="app.js"]');
-    var base = app ? app.getAttribute('src').replace(/app\.js.*$/, '') : 'assets/';
-    bee.src = base + 'img/bee-mascot.png?v=bee1';
-    header.appendChild(bee);
-
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var size = function () { return window.innerWidth < 700 ? 56 : 74; };
-
-    function spot() {
-      var h = header.getBoundingClientRect();
-      var L = logo.getBoundingClientRect();
-      var P = phone.getBoundingClientRect();
-      var w = size();
-      var sit = { x: L.left - h.left + L.width * 0.34 - w * 0.35, y: L.top - h.top - w * 0.62 };
-      var aim = { x: P.left - h.left - w + 22, y: P.top - h.top + P.height / 2 - w * 0.58 };
-      return { sit: sit, aim: aim };
-    }
-
-    function put(x, y, tilt) {
-      bee.style.transform = 'translate(' + x + 'px,' + y + 'px) rotate(' + tilt + 'deg)';
-    }
-
-    if (reduce) {
-      var once = spot();
-      put(once.sit.x, once.sit.y, 8);
-      return;
-    }
-
-    var keys = [
-      { at: 0, where: 'off', tilt: -8 },
-      { at: 1.7, where: 'sit', tilt: 8 },
-      { at: 3.2, where: 'sit', tilt: 11 },
-      { at: 4.8, where: 'aim', tilt: -2 },
-      { at: 6.6, where: 'aim', tilt: 3 },
-      { at: 8.2, where: 'off', tilt: -10 }
-    ];
-    var loop = 8.2;
-    var t0 = performance.now();
-
-    function ease(u) {
-      return u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
-    }
-
-    function frame(now) {
-      var s = spot();
-      var places = {
-        off: { x: -size() - 8, y: s.sit.y },
-        sit: s.sit,
-        aim: s.aim
-      };
-      var t = ((now - t0) / 1000) % loop;
-      var i = 0;
-      while (i < keys.length - 1 && t > keys[i + 1].at) i++;
-      var a = keys[i];
-      var b = keys[Math.min(i + 1, keys.length - 1)];
-      var span = Math.max(0.001, b.at - a.at);
-      var u = ease(Math.min(1, Math.max(0, (t - a.at) / span)));
-      var A = places[a.where];
-      var B = places[b.where];
-      var flying = a.where !== b.where;
-      var bob = flying ? Math.sin(now / 90) * 4 : Math.sin(now / 280) * 1.2;
-      put(A.x + (B.x - A.x) * u, A.y + (B.y - A.y) * u + bob, a.tilt + (b.tilt - a.tilt) * u);
-      phone.classList.toggle('is-pointed', t > 4.7 && t < 6.7);
-      requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-  }
-
   function init() {
     setupFaq();
     setupMoreMenu();
@@ -1296,7 +1219,6 @@
     setupToTop();
     setupCgal();
     setupNewsletter();
-    setupHeaderBee();
     var boot=document.createElement('script');
     boot.src='assets/hero-boot.js?v=motion-10';
     document.body.appendChild(boot);
