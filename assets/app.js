@@ -544,6 +544,8 @@
           el.style.transform = 'translate(' + (r * Math.cos(a)).toFixed(1) + 'px,' + (ry * Math.sin(a)).toFixed(1) + 'px)';
           if (i === active) {
             el.style.zIndex = 200; el.style.opacity = 1;
+          } else if (el.classList.contains('is-dim')) {
+            el.style.zIndex = 1; el.style.opacity = 0.16;
           } else {
             el.style.zIndex = Math.round(100 + 50 * Math.cos(a));
             el.style.opacity = Math.max(0.4, Math.min(1, 0.4 + 0.6 * ((1 + Math.sin(a)) / 2))).toFixed(3);
@@ -637,6 +639,81 @@
       });
       place();
       requestAnimationFrame(frame);
+
+      var form = root.parentNode && root.parentNode.querySelector('.addr-search');
+      if (form) {
+        var input = form.querySelector('input');
+        var list = form.querySelector('.addr-search-list');
+        var meta = form.querySelector('.addr-search-meta');
+        var index = nodes.map(function (node, i) {
+          var text = function (sel) {
+            var el = node.querySelector(sel);
+            return el ? el.textContent.replace(/\s+/g, ' ').trim() : '';
+          };
+          var tags = Array.prototype.map.call(node.querySelectorAll('.orbit-tags li'), function (li) {
+            return li.textContent.trim();
+          });
+          var phone = text('a[href^="tel:"]');
+          var blob = [text('.orbit-label'), text('.orbit-short'), text('.orbit-address'), tags.join(' '), phone]
+            .join(' ').toLowerCase().replace(/ё/g, 'е');
+          return {
+            i: i,
+            label: text('.orbit-label'),
+            addr: text('.orbit-address'),
+            tags: tags.join(' · '),
+            phone: phone,
+            blob: blob,
+            digits: phone.replace(/\D/g, '')
+          };
+        });
+        function fold(value) {
+          return (value || '').toLowerCase().replace(/ё/g, 'е').trim();
+        }
+        function apply() {
+          var q = fold(input.value);
+          var digits = q.replace(/\D/g, '');
+          var hits = [];
+          index.forEach(function (item) {
+            var ok = !q || item.blob.indexOf(q) !== -1 || (digits.length >= 2 && item.digits.indexOf(digits) !== -1);
+            nodes[item.i].classList.toggle('is-dim', !!q && !ok);
+            nodes[item.i].classList.toggle('is-hit', !!q && ok);
+            if (ok) hits.push(item);
+          });
+          root.classList.toggle('is-filtering', !!q);
+          if (q) auto = false;
+          else if (active < 0) auto = !reduced;
+          list.innerHTML = '';
+          if (!q) {
+            list.hidden = true;
+            meta.textContent = '13 адресов по городу';
+            return;
+          }
+          meta.textContent = hits.length ? ('Нашли ' + hits.length + ' из 13') : 'Ничего не нашли. Попробуйте улицу или услугу: ремонт, мех, шторы.';
+          hits.forEach(function (item) {
+            var li = document.createElement('li');
+            var button = document.createElement('button');
+            button.type = 'button';
+            button.innerHTML = '<strong></strong><span></span>';
+            button.querySelector('strong').textContent = item.label;
+            button.querySelector('span').textContent = item.addr + (item.tags ? ' · ' + item.tags : '');
+            button.addEventListener('click', function () {
+              open(item.i);
+              root.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+            });
+            li.appendChild(button);
+            list.appendChild(li);
+          });
+          list.hidden = hits.length === 0;
+        }
+        input.addEventListener('input', apply);
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+          apply();
+          var only = list.querySelector('button');
+          if (only && list.children.length === 1) only.click();
+        });
+        meta.textContent = '13 адресов по городу';
+      }
     });
   }
 

@@ -6106,6 +6106,72 @@ header.site-header-hero .logo-dot {
 }
 
 /* адреса на орбите: «Radial Orbital Timeline» с 21st.dev */
+.addr-search {
+  max-width:720px;
+  margin:8px auto 22px}
+.addr-search-label {
+  display:block;
+  margin-bottom:8px;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#6d6e83}
+.addr-search-input {
+  width:100%;
+  height:56px;
+  border:1px solid #464d7733;
+  border-radius:999px;
+  background:#fff;
+  color:var(--ink);
+  padding:0 22px;
+  font:16px var(--font-body);
+  outline:none}
+.addr-search-input:focus {
+  border-color:#464d77;
+  box-shadow:0 0 0 4px #464d7714}
+.addr-search-meta {
+  min-height:1.4em;
+  margin:10px 4px 0;
+  color:#6d6e83;
+  font-size:14px}
+.addr-search-list {
+  list-style:none;
+  margin:10px 0 0;
+  padding:6px;
+  border:1px solid #464d7724;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 16px 40px #464d771f;
+  max-height:320px;
+  overflow:auto}
+.addr-search-list button {
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  text-align:left;
+  border:0;
+  border-radius:12px;
+  background:transparent;
+  color:var(--ink);
+  padding:10px 12px;
+  font:inherit;
+  cursor:pointer}
+.addr-search-list button strong {
+  font-size:15px}
+.addr-search-list button span {
+  color:#6d6e83;
+  font-size:13px;
+  line-height:1.4}
+.addr-search-list button:hover,.addr-search-list button:focus-visible {
+  background:#f4f2ea;
+  outline:none}
+.orbit.is-filtering .orbit-node.is-dim {
+  pointer-events:none}
+.orbit.is-filtering .orbit-node.is-hit .orbit-dot {
+  border-color:var(--yellow);
+  box-shadow:0 0 0 4px #ffdb1e66}
 .orbit {
   --bg:#464d77;
   --r:290px;
