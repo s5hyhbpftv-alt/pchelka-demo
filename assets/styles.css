@@ -5660,6 +5660,23 @@ header.site-header-hero .logo-dot {
   padding:clamp(48px,7vw,104px) clamp(24px,5vw,72px) 0;
   position:relative;
   overflow:hidden}
+.service-hero-video {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0}
+.net-hero::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(#3a406866,#3a4068d0)}
+.net-hero .service-hero-copy,.net-hero .service-facts {
+  position:relative;
+  z-index:1}
 .service-hero-copy {
   max-width:760px}
 .service-hero h1 {
