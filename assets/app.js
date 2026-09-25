@@ -1280,6 +1280,29 @@
     requestAnimationFrame(frame);
   }
 
+  function assetBase() {
+    var scripts = document.getElementsByTagName('script');
+    for (var i = 0; i < scripts.length; i++) {
+      var src = scripts[i].getAttribute('src') || '';
+      if (src.indexOf('app.js') !== -1) return src.replace(/app\.js.*$/, '');
+    }
+    return 'assets/';
+  }
+
+  function setupChase() {
+    if (reduced) return;
+    var menu = document.querySelector('.site-header-menu');
+    if (!menu || menu.querySelector('.menu-chase')) return;
+    var base = assetBase();
+    var track = document.createElement('div');
+    track.className = 'menu-chase';
+    track.setAttribute('aria-hidden', 'true');
+    track.innerHTML =
+      '<video class="chase chase-lead" autoplay muted loop playsinline src="' + base + 'img/chase-red.webm?v=run"></video>' +
+      '<video class="chase chase-follow" autoplay muted loop playsinline src="' + base + 'img/chase-bee.webm?v=run"></video>';
+    menu.appendChild(track);
+  }
+
   function init() {
     setupFaq();
     setupMoreMenu();
@@ -1296,6 +1319,7 @@
     setupToTop();
     setupCgal();
     setupNewsletter();
+    setupChase();
     var boot=document.createElement('script');
     boot.src='assets/hero-boot.js?v=motion-10';
     document.body.appendChild(boot);

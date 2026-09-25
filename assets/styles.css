@@ -5105,7 +5105,33 @@ header.site-header .site-header-menu {
   display:flex;
   position:absolute;
   left:50%;
-  transform:translate(-50%)}
+  transform:translate(-50%);
+  overflow:visible}
+.menu-chase {
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-6px;
+  height:62px;
+  pointer-events:none;
+  z-index:3}
+.menu-chase .chase {
+  position:absolute;
+  bottom:0;
+  height:62px;
+  width:auto;
+  left:-52px;
+  animation:menu-chase 12s linear infinite}
+.menu-chase .chase-follow {
+  height:56px;
+  animation-delay:2.8s}
+@keyframes menu-chase {
+  from { left:-52px }
+  to { left:calc(100% + 8px) }
+}
+@media (max-width:860px) {
+  .menu-chase { display:none }
+}
 .site-header-menu a {
   white-space:nowrap;
   border-radius:999px;
