@@ -1090,6 +1090,13 @@
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(c); }
       });
     });
+    Array.prototype.forEach.call(document.querySelectorAll('.lookbook-card'), function (card) {
+      card.addEventListener('click', function () {
+        var shot = card.getAttribute('data-shot');
+        var target = document.querySelector('.unfurl-card[data-shot="' + shot + '"]');
+        if (target) open(target);
+      });
+    });
     box.querySelector('.lbx-backdrop').addEventListener('click', close);
     box.querySelector('.lbx-close').addEventListener('click', close);
     stage.addEventListener('click', function (e) { if (e.target === stage || e.target.classList.contains('lbx-slide')) close(); });
