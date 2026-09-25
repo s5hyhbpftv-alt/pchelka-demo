@@ -1369,7 +1369,7 @@
         s.className = 'wm-letter';
         s.textContent = text.charAt(i);
         el.appendChild(s);
-        var file = i === 0 ? 'img/sit-red.mp4?v=sit' : (i === text.length - 1 ? 'img/sit-bee.mp4?v=sit' : '');
+        var file = i === 0 ? 'img/sit-red.mp4?v=sit2' : (i === text.length - 1 ? 'img/sit-bee.mp4?v=sit2' : '');
         if (!file) continue;
         var video = document.createElement('video');
         video.className = 'floor-src';
