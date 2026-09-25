@@ -1289,69 +1289,6 @@
     return 'assets/';
   }
 
-  function setupChase() {
-    if (reduced) return;
-    var cards = document.querySelectorAll('.mantality-orbit-cta');
-    if (!cards.length) return;
-    var base = assetBase();
-    var video = document.createElement('video');
-    video.className = 'floor-src';
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.setAttribute('playsinline', '');
-    video.preload = 'none';
-    video.src = base + 'img/floor-play.mp4?v=play';
-    var canvas = document.createElement('canvas');
-    canvas.className = 'floor-friends';
-    canvas.setAttribute('aria-hidden', 'true');
-    canvas.width = 640;
-    canvas.height = 360;
-    document.body.appendChild(video);
-    document.body.appendChild(canvas);
-    var ctx = canvas.getContext('2d', { willReadFrequently: true });
-    var on = false;
-    function paint() {
-      if (on && video.readyState >= 2) {
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-        var frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        var d = frame.data;
-        for (var i = 0; i < d.length; i += 4) {
-          var r = d[i], g = d[i + 1], b = d[i + 2];
-          var maxRB = r > b ? r : b;
-          if (g > 110 && g > maxRB + 36) {
-            var spill = g - maxRB;
-            d[i + 3] = spill > 80 ? 0 : 255 - spill * 3;
-            if (d[i + 1] > maxRB) d[i + 1] = maxRB;
-          }
-        }
-        ctx.putImageData(frame, 0, 0);
-      }
-      requestAnimationFrame(paint);
-    }
-    function setOn(next) {
-      if (next === on) return;
-      on = next;
-      canvas.classList.toggle('is-on', on);
-      if (on) video.play()["catch"](function () {});
-      else video.pause();
-    }
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          e.target.setAttribute('data-girls', e.isIntersecting ? '1' : '0');
-        });
-        var show = false;
-        Array.prototype.forEach.call(cards, function (card) {
-          if (card.getAttribute('data-girls') === '1') show = true;
-        });
-        setOn(show);
-      }, { threshold: 0.35 });
-      Array.prototype.forEach.call(cards, function (card) { io.observe(card); });
-    }
-    paint();
-  }
-
   function keyOnto(video, canvas) {
     var ctx = canvas.getContext('2d', { willReadFrequently: true });
     function paint() {
@@ -1430,7 +1367,6 @@
     setupToTop();
     setupCgal();
     setupNewsletter();
-    setupChase();
     setupLetters();
     var boot=document.createElement('script');
     boot.src='assets/hero-boot.js?v=motion-10';

@@ -5155,18 +5155,6 @@ header.site-header .site-header-menu {
   height:2px;
   opacity:0;
   pointer-events:none}
-.floor-friends {
-  position:fixed;
-  left:50%;
-  bottom:0;
-  z-index:60;
-  width:min(720px, 96vw);
-  height:auto;
-  pointer-events:none;
-  opacity:0;
-  transform:translate(-50%, 8px);
-  transition:opacity .35s ease}
-.floor-friends.is-on { opacity:1 }
 .site-header-menu a {
   white-space:nowrap;
   border-radius:999px;
