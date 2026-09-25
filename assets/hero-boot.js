@@ -1,9 +1,9 @@
 (function () {
-  var MOTION = { rate: 0.82 };
+  var MOTION = { rate: 1 };
 
   var css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = 'assets/hero-motion.css?v=motion-4';
+  css.href = 'assets/hero-motion.css?v=motion-5';
   document.head.appendChild(css);
 
   var visual = document.querySelector('.hero-visual');
@@ -21,7 +21,7 @@
   video.setAttribute('aria-hidden', 'true');
   video.poster = 'assets/img/hero.jpg';
   var source = document.createElement('source');
-  source.src = 'assets/img/hero.mp4?v=atelier-live';
+  source.src = 'assets/img/hero.mp4?v=hero-live-2';
   source.type = 'video/mp4';
   video.appendChild(source);
   visual.insertBefore(video, visual.firstChild);
