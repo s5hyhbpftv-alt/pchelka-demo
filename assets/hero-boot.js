@@ -3,7 +3,7 @@
 
   var css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = 'assets/hero-motion.css?v=motion-8';
+  css.href = 'assets/hero-motion.css?v=motion-9';
   document.head.appendChild(css);
 
   function arm(video) {
@@ -62,7 +62,7 @@
     video.className = 'hero-photo hero-video';
     video.poster = 'assets/img/hero-poster.jpg';
     var source = document.createElement('source');
-    source.src = 'assets/img/hero.mp4?v=hero-emb';
+    source.src = 'assets/img/hero.mp4?v=hero-gold';
     source.type = 'video/mp4';
     video.appendChild(source);
     visual.insertBefore(video, visual.firstChild);
