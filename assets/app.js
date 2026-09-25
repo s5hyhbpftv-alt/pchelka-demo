@@ -1220,7 +1220,7 @@
     setupCgal();
     setupNewsletter();
     var boot=document.createElement('script');
-    boot.src='assets/hero-boot.js?v=motion-9';
+    boot.src='assets/hero-boot.js?v=motion-10';
     document.body.appendChild(boot);
   }
 
