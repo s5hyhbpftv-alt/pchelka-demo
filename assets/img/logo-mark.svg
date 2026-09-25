@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" role="img" aria-label="Пчёлка">
+  <circle cx="280" cy="280" r="246" fill="#fff" stroke="#161616" stroke-width="30"/>
+  <g transform="translate(262 294) scale(0.9)">
+    
+<g id="bee">
+  <g fill="#ffd24a" stroke="#161616" stroke-width="6.5" stroke-linejoin="round">
+    <ellipse cx="-64" cy="6" rx="54" ry="92" transform="rotate(-26 -64 6)"/>
+    <ellipse cx="70" cy="18" rx="48" ry="82" transform="rotate(22 70 18)"/>
+    <ellipse cx="-72" cy="-6" rx="22" ry="48" fill="#fff6d2" stroke="none" transform="rotate(-26 -72 -6)"/>
+    <ellipse cx="78" cy="4" rx="18" ry="40" fill="#fff6d2" stroke="none" transform="rotate(22 78 4)"/>
+  </g>
+  <g fill="none" stroke-linecap="round">
+    <path d="M-16,96 C-34,132 -58,156 -76,166" stroke="#161616" stroke-width="15"/>
+    <path d="M-16,96 C-34,132 -58,156 -76,166" stroke="#ffcc29" stroke-width="7.5"/>
+    <path d="M18,100 C36,136 54,160 70,170" stroke="#161616" stroke-width="15"/>
+    <path d="M18,100 C36,136 54,160 70,170" stroke="#ffcc29" stroke-width="7.5"/>
+  </g>
+  <ellipse cx="-90" cy="172" rx="24" ry="14" fill="#ffcc29" stroke="#161616" stroke-width="6.5" transform="rotate(-24 -90 172)"/>
+  <ellipse cx="84" cy="178" rx="24" ry="14" fill="#ffcc29" stroke="#161616" stroke-width="6.5" transform="rotate(18 84 178)"/>
+  <g stroke="#161616" stroke-width="7" stroke-linejoin="round">
+    <clipPath id="bodyclip"><ellipse cx="2" cy="24" rx="56" ry="94"/></clipPath>
+    <g clip-path="url(#bodyclip)">
+      <rect x="-80" y="-80" width="170" height="220" fill="#ffcc29" stroke="none"/>
+      <rect x="-80" y="-2" width="170" height="18" fill="#161616" stroke="none"/>
+      <rect x="-80" y="34" width="170" height="18" fill="#161616" stroke="none"/>
+      <rect x="-80" y="70" width="170" height="17" fill="#161616" stroke="none"/>
+    </g>
+    <ellipse cx="2" cy="24" rx="56" ry="94" fill="none"/>
+  </g>
+  <g fill="none" stroke-linecap="round">
+    <path d="M-34,-22 C-58,0 -92,28 -78,58" stroke="#161616" stroke-width="17"/>
+    <path d="M-34,-22 C-58,0 -92,28 -78,58" stroke="#ffcc29" stroke-width="8.5"/>
+    <path d="M36,-24 C62,-8 88,-6 104,-22" stroke="#161616" stroke-width="17"/>
+    <path d="M36,-24 C62,-8 88,-6 104,-22" stroke="#ffcc29" stroke-width="8.5"/>
+  </g>
+  <ellipse cx="-72" cy="68" rx="16" ry="13" fill="#ffcc29" stroke="#161616" stroke-width="6.5" transform="rotate(-18 -72 68)"/>
+  <ellipse cx="4" cy="-98" rx="46" ry="50" fill="#ffcc29" stroke="#161616" stroke-width="7"/>
+  <g fill="none" stroke="#161616" stroke-width="5.5" stroke-linecap="round">
+    <path d="M-8,-138 C-14,-158 -22,-166 -16,-178"/>
+    <path d="M18,-136 C26,-156 36,-164 30,-176"/>
+  </g>
+  <circle cx="-16" cy="-182" r="6.5" fill="#161616"/>
+  <circle cx="30" cy="-180" r="6.5" fill="#161616"/>
+  <ellipse cx="-14" cy="-102" rx="12" ry="15" fill="#fff" stroke="#161616" stroke-width="3.2"/>
+  <ellipse cx="22" cy="-100" rx="12" ry="15" fill="#fff" stroke="#161616" stroke-width="3.2"/>
+  <circle cx="-12" cy="-100" r="4.6" fill="#161616"/>
+  <circle cx="24" cy="-98" r="4.6" fill="#161616"/>
+  <path d="M-10,-80 Q6,-66 22,-80" fill="none" stroke="#161616" stroke-width="4.2" stroke-linecap="round"/>
+</g>
+
+    
+<g id="needle">
+  <polygon points="112,-186 105,-158 119,-158" fill="#161616"/>
+  <line x1="112" y1="-158" x2="112" y2="112" stroke="#161616" stroke-width="11" stroke-linecap="butt"/>
+  <line x1="112" y1="-150" x2="112" y2="108" stroke="#f4f1ea" stroke-width="4.5" stroke-linecap="butt"/>
+  <ellipse cx="112" cy="128" rx="15" ry="22" fill="#f4f1ea" stroke="#161616" stroke-width="6.5"/>
+  <ellipse cx="112" cy="128" rx="5.5" ry="11" fill="#fff"/>
+  <ellipse cx="112" cy="-8" rx="16" ry="18" fill="#ffcc29" stroke="#161616" stroke-width="6.5"/>
+</g>
+
+  </g>
+</svg>

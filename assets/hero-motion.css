@@ -1,11 +1,86 @@
-.hero-visual{overflow:hidden}
-.hero-visual .hero-video,.hero-visual .hero-photo-fallback{
-  object-fit:cover;width:100%;height:100%;position:absolute;inset:0;border-radius:8px
+.hero {
+  --hero-zoom-from: 1.04;
+  --hero-zoom-to: 1.12;
+  --hero-drift: 32s;
+  --hero-enter: 0.95s;
+  --hero-sheen: 6.4s;
 }
-.hero-visual .hero-video{object-position:center 42%;z-index:1;animation:heroKenBurns 32s ease-in-out infinite alternate;transform-origin:46% 38%}
-.hero-visual .hero-photo-fallback{z-index:0;animation:heroKenBurns 28s ease-in-out infinite alternate;transform-origin:58% 42%}
-@keyframes heroKenBurns{
-  0%{transform:scale(1.04) translate3d(-1.2%,-.6%,0)}
-  100%{transform:scale(1.12) translate3d(1.4%,1%,0)}
+
+.hero-visual { overflow: hidden; }
+
+.hero-visual .hero-video,
+.hero-visual .hero-photo-fallback {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
 }
-.approach-portrait img{object-position:center 18%}
+
+.hero-visual .hero-video {
+  z-index: 0;
+  object-position: center 48%;
+  transform-origin: 46% 38%;
+  animation: heroKenBurns var(--hero-drift) ease-in-out infinite alternate;
+}
+
+.hero-visual .hero-photo-fallback {
+  z-index: 0;
+  transform-origin: 58% 42%;
+  animation: heroKenBurns 28s ease-in-out infinite alternate;
+}
+
+.hero-visual .photo-shade {
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 236, 210, .18) 48%, transparent 58%);
+  mix-blend-mode: soft-light;
+  animation: heroSheen var(--hero-sheen) ease-in-out infinite;
+}
+
+.hero .hero-copy,
+.hero .image-quote,
+.hero .image-top,
+.hero .image-bottom {
+  animation: heroEnter var(--hero-enter) cubic-bezier(.22, 1, .36, 1) both;
+}
+.hero .image-quote { animation-delay: .12s; }
+.hero .image-top { animation-delay: .18s; }
+.hero .image-bottom { animation-delay: .24s; }
+
+.approach-portrait img { object-position: center 18%; }
+
+@keyframes heroKenBurns {
+  0% { transform: scale(var(--hero-zoom-from)) translate3d(-1.2%, -0.6%, 0); }
+  100% { transform: scale(var(--hero-zoom-to)) translate3d(1.4%, 1%, 0); }
+}
+@keyframes heroSheen {
+  0%, 62% { transform: translate3d(-18%, 0, 0); opacity: 0; }
+  74% { opacity: 1; }
+  100% { transform: translate3d(22%, 0, 0); opacity: 0; }
+}
+@keyframes heroEnter {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual .hero-video,
+  .hero-visual .hero-photo-fallback,
+  .hero-visual::after,
+  .hero .hero-copy,
+  .hero .image-quote,
+  .hero .image-top,
+  .hero .image-bottom {
+    animation: none;
+  }
+}

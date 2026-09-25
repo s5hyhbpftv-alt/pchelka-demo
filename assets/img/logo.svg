@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 12 760 700" role="img" aria-label="Пчёлка">
+  <rect width="900" height="760" x="-40" y="-20" fill="#ffcc29"/>
+  <circle cx="330" cy="392" r="258" fill="#fff" stroke="#161616" stroke-width="28"/>
+  <g transform="translate(308 404)">
+    
+<g id="bee">
+  <g fill="#ffd24a" stroke="#161616" stroke-width="6.5" stroke-linejoin="round">
+    <ellipse cx="-64" cy="6" rx="54" ry="92" transform="rotate(-26 -64 6)"/>
+    <ellipse cx="70" cy="18" rx="48" ry="82" transform="rotate(22 70 18)"/>
+    <ellipse cx="-72" cy="-6" rx="22" ry="48" fill="#fff6d2" stroke="none" transform="rotate(-26 -72 -6)"/>
+    <ellipse cx="78" cy="4" rx="18" ry="40" fill="#fff6d2" stroke="none" transform="rotate(22 78 4)"/>
+  </g>
+  <g fill="none" stroke-linecap="round">
+    <path d="M-16,96 C-34,132 -58,156 -76,166" stroke="#161616" stroke-width="15"/>
+    <path d="M-16,96 C-34,132 -58,156 -76,166" stroke="#ffcc29" stroke-width="7.5"/>
+    <path d="M18,100 C36,136 54,160 70,170" stroke="#161616" stroke-width="15"/>
+    <path d="M18,100 C36,136 54,160 70,170" stroke="#ffcc29" stroke-width="7.5"/>
+  </g>
+  <ellipse cx="-90" cy="172" rx="24" ry="14" fill="#ffcc29" stroke="#161616" stroke-width="6.5" transform="rotate(-24 -90 172)"/>
+  <ellipse cx="84" cy="178" rx="24" ry="14" fill="#ffcc29" stroke="#161616" stroke-width="6.5" transform="rotate(18 84 178)"/>
+  <g stroke="#161616" stroke-width="7" stroke-linejoin="round">
+    <clipPath id="bodyclip"><ellipse cx="2" cy="24" rx="56" ry="94"/></clipPath>
+    <g clip-path="url(#bodyclip)">
+      <rect x="-80" y="-80" width="170" height="220" fill="#ffcc29" stroke="none"/>
+      <rect x="-80" y="-2" width="170" height="18" fill="#161616" stroke="none"/>
+      <rect x="-80" y="34" width="170" height="18" fill="#161616" stroke="none"/>
+      <rect x="-80" y="70" width="170" height="17" fill="#161616" stroke="none"/>
+    </g>
+    <ellipse cx="2" cy="24" rx="56" ry="94" fill="none"/>
+  </g>
+  <g fill="none" stroke-linecap="round">
+    <path d="M-34,-22 C-58,0 -92,28 -78,58" stroke="#161616" stroke-width="17"/>
+    <path d="M-34,-22 C-58,0 -92,28 -78,58" stroke="#ffcc29" stroke-width="8.5"/>
+    <path d="M36,-24 C62,-8 88,-6 104,-22" stroke="#161616" stroke-width="17"/>
+    <path d="M36,-24 C62,-8 88,-6 104,-22" stroke="#ffcc29" stroke-width="8.5"/>
+  </g>
+  <ellipse cx="-72" cy="68" rx="16" ry="13" fill="#ffcc29" stroke="#161616" stroke-width="6.5" transform="rotate(-18 -72 68)"/>
+  <ellipse cx="4" cy="-98" rx="46" ry="50" fill="#ffcc29" stroke="#161616" stroke-width="7"/>
+  <g fill="none" stroke="#161616" stroke-width="5.5" stroke-linecap="round">
+    <path d="M-8,-138 C-14,-158 -22,-166 -16,-178"/>
+    <path d="M18,-136 C26,-156 36,-164 30,-176"/>
+  </g>
+  <circle cx="-16" cy="-182" r="6.5" fill="#161616"/>
+  <circle cx="30" cy="-180" r="6.5" fill="#161616"/>
+  <ellipse cx="-14" cy="-102" rx="12" ry="15" fill="#fff" stroke="#161616" stroke-width="3.2"/>
+  <ellipse cx="22" cy="-100" rx="12" ry="15" fill="#fff" stroke="#161616" stroke-width="3.2"/>
+  <circle cx="-12" cy="-100" r="4.6" fill="#161616"/>
+  <circle cx="24" cy="-98" r="4.6" fill="#161616"/>
+  <path d="M-10,-80 Q6,-66 22,-80" fill="none" stroke="#161616" stroke-width="4.2" stroke-linecap="round"/>
+</g>
+
+    
+<g id="needle">
+  <polygon points="112,-186 105,-158 119,-158" fill="#161616"/>
+  <line x1="112" y1="-158" x2="112" y2="112" stroke="#161616" stroke-width="11" stroke-linecap="butt"/>
+  <line x1="112" y1="-150" x2="112" y2="108" stroke="#f4f1ea" stroke-width="4.5" stroke-linecap="butt"/>
+  <ellipse cx="112" cy="128" rx="15" ry="22" fill="#f4f1ea" stroke="#161616" stroke-width="6.5"/>
+  <ellipse cx="112" cy="128" rx="5.5" ry="11" fill="#fff"/>
+  <ellipse cx="112" cy="-8" rx="16" ry="18" fill="#ffcc29" stroke="#161616" stroke-width="6.5"/>
+</g>
+
+  </g>
+  <g fill="#161616"><g transform="matrix(0.03622 0.01177 0.01177 -0.03622 422.71 106.68)"><path d="M579 831V1026Q579 1093 586.5 1148.0Q594 1203 608.5 1249.0Q623 1295 643.5 1334.5Q664 1374 690 1409H872Q844 1374 820.0 1335.0Q796 1296 778.5 1255.0Q761 1214 751.0 1173.0Q741 1132 741 1092H868V831ZM151 831V1026Q151 1093 158.5 1148.0Q166 1203 180.0 1249.0Q194 1295 214.0 1334.5Q234 1374 259 1409H442Q414 1374 390.0 1335.0Q366 1296 348.5 1255.0Q331 1214 321.0 1173.0Q311 1132 311 1092H438V831Z"/></g>
+<g transform="matrix(0.03446 0.01623 0.01623 -0.03446 457.83 120.59)"><path d="M1050 0V1165H431V0H137V1409H1335V0Z"/></g>
+<g transform="matrix(0.03093 0.02222 0.02222 -0.03093 505.05 148.37)"><path d="M1006 0V547Q967 533 919.5 518.0Q872 503 817.0 491.0Q762 479 700.0 471.5Q638 464 571 464Q331 464 220.5 577.0Q110 690 110 929V1409H394V960Q394 888 406.5 835.5Q419 783 450.5 749.5Q482 716 535.5 699.5Q589 683 671 683Q763 683 849.5 699.0Q936 715 1006 736V1409H1301V0Z"/></g>
+<g transform="matrix(0.02649 0.02737 0.02737 -0.02649 545.57 183.36)"><path d="M137 0V1409H1245V1181H432V827H1184V599H432V228H1286V0Z"/></g>
+<g transform="matrix(0.02149 0.03144 0.03144 -0.02149 577.66 222.69)"><path d="M1016 1165H609L560 817Q537 656 514.5 531.5Q492 407 465.5 314.5Q439 222 406.5 159.0Q374 96 331.5 57.0Q289 18 234.0 1.0Q179 -16 107 -16Q80 -16 51.0 -11.5Q22 -7 8 1V248Q16 244 29.5 242.5Q43 241 51 241Q74 241 94.0 251.5Q114 262 132.5 290.0Q151 318 169.0 367.0Q187 416 204.5 493.5Q222 571 241.0 680.0Q260 789 281 936L348 1409H1300V0H1016Z"/></g>
+<g transform="matrix(0.01557 0.03476 0.03476 -0.01557 603.78 269.34)"><path d="M137 1409H432V810Q459 810 485.0 824.0Q511 838 542.0 870.0Q573 902 611.0 954.5Q649 1007 698 1085L904 1409H1204L939 1004Q916 969 891.0 933.0Q866 897 843.0 866.0Q820 835 800.0 812.0Q780 789 768 780L1253 0H932L558 640Q547 633 531.5 627.0Q516 621 498.5 616.0Q481 611 463.5 608.0Q446 605 431 605V0H137Z"/></g>
+<g transform="matrix(0.01003 0.03674 0.03674 -0.01003 619.41 312.98)"><path d="M1133 0 1008 360H471L346 0H51L565 1409H913L1425 0ZM803 987Q791 1022 779.5 1057.5Q768 1093 759.5 1122.5Q751 1152 745.5 1171.0Q740 1190 739 1192Q738 1189 733.0 1170.0Q728 1151 719.5 1122.0Q711 1093 699.5 1057.5Q688 1022 676 987L537 582H942Z"/></g>
+<g transform="matrix(0.00315 0.03796 0.03796 -0.00315 628.97 367.20)"><path d="M872 1217Q872 1149 864.5 1093.5Q857 1038 843.0 991.5Q829 945 809.0 906.0Q789 867 763 831H579Q636 903 674.0 985.5Q712 1068 712 1149H585V1409H872ZM442 1217Q442 1149 435.0 1093.5Q428 1038 414.0 991.5Q400 945 379.5 906.0Q359 867 333 831H151Q179 867 203.0 906.0Q227 945 244.5 985.5Q262 1026 272.0 1067.5Q282 1109 282 1149H155V1409H442Z"/></g></g>
+</svg>
