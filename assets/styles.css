@@ -5599,14 +5599,10 @@ to {
 /* знак в шапке — пчела без круга, поэтому ему нужно чуть больше места;
    над фотографией добавляем тень, иначе тонкая обводка теряется */
 header.site-header .mantality-brand-symbol {
-  width:54px;
-  height:54px}
-header.site-header .mantality-brand-symbol img {
-  transform-origin:50% 78%;
-  animation:bee-alive 1.7s ease-in-out infinite;
-}
+  width:62px;
+  height:62px}
 header.site-header .logo {
-  gap:11px}
+  gap:8px}
 header.site-header-hero .logo {
   text-shadow:0 1px 14px #10131f80,0 1px 3px #10131f66}
 header.site-header-hero .mantality-brand-symbol {
@@ -5615,19 +5611,8 @@ header.site-header-hero .logo-dot {
   opacity:.85}
 @media (max-width:480px) {
   header.site-header .mantality-brand-symbol {
-  width:42px;
-  height:42px}
-}
-
-@keyframes bee-alive {
-  0%, 100% { transform: translateY(0) rotate(-7deg); }
-  20% { transform: translateY(-3px) rotate(3deg); }
-  40% { transform: translateY(-1px) rotate(-4deg); }
-  62% { transform: translateY(-4px) rotate(8deg); }
-  80% { transform: translateY(-1px) rotate(-2deg); }
-}
-@media (prefers-reduced-motion: reduce) {
-  header.site-header .mantality-brand-symbol img { animation: none; }
+  width:48px;
+  height:48px}
 }
 
 /* правое уточнение набираем так же, как левое — иначе локап перекошен */
