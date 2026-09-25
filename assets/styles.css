@@ -8756,3 +8756,27 @@ section.b2b.section {
   .mantality-footer-links {
   justify-self:start}
 }
+
+/* пчела в шапке: летит, садится на буквы, показывает иголкой телефон */
+header.site-header { overflow: visible; }
+.header-bee {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 8;
+  width: 74px;
+  height: auto;
+  pointer-events: none;
+  transform-origin: 72% 62%;
+  filter: drop-shadow(0 8px 10px #10131f40);
+  will-change: transform;
+}
+header.site-header .site-sign-in.is-pointed {
+  box-shadow: 0 0 0 2px #e2b657, 0 8px 18px #e2b65755;
+}
+@media (max-width: 700px) {
+  .header-bee { width: 56px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .header-bee { transition: none; }
+}
