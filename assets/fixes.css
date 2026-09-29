@@ -780,3 +780,16 @@ header.site-header-brand .site-more-toggle {
 .hard-facts b {
   font-size:20px}
 }
+
+/* ── «Работы»: галерея короче, надпись — рукописная ───────────────── */
+.unfurl {
+  height:260vh}
+@media (max-width:760px) {
+  .unfurl {
+  height:210vh}
+.unfurl-intro .unfurl-script {
+  font-size:clamp(52px,15vw,72px)}
+}
+.works-hero .community-bottom a {
+  text-decoration:underline;
+  text-underline-offset:3px}
