@@ -358,3 +358,16 @@ header.site-header-brand .site-more-toggle {
   padding-left:16px;
   padding-right:12px}
 }
+/* шрифты карточек — как на странице: название как заголовки (Wix Madefor,
+   обычная насыщенность), адрес и часы как основной текст (Golos Text) */
+.cgal-name {
+  font-family:var(--font-heading);
+  font-weight:500;
+  letter-spacing:-.5px}
+.cgal-addr,.cgal-hours {
+  font-family:var(--font-body);
+  letter-spacing:0}
+.cgal-addr {
+  font-weight:400}
+.cgal-hours {
+  font-weight:600}

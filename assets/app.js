@@ -1150,13 +1150,18 @@
     var target = null, visible = false, last = 0, lastScroll = window.scrollY, hold = 0;
 
     // каждая строка карточки — в одну строку: если не влезает, чуть уменьшаем шрифт
+    // один размер на все карточки: подбираем по самой длинной строке каждого вида,
+    // иначе соседние карточки выглядят набранными разным шрифтом
     function fitText() {
-      root.querySelectorAll('.cgal-name, .cgal-addr, .cgal-hours').forEach(function (el) {
-        el.style.fontSize = '';
-        var size = parseFloat(getComputedStyle(el).fontSize);
-        while (el.scrollWidth > el.clientWidth + 0.5 && size > 10) {
+      ['.cgal-name', '.cgal-addr', '.cgal-hours'].forEach(function (sel) {
+        var els = Array.prototype.slice.call(root.querySelectorAll(sel));
+        if (!els.length) return;
+        els.forEach(function (el) { el.style.fontSize = ''; });
+        var size = parseFloat(getComputedStyle(els[0]).fontSize);
+        function over() { return els.some(function (el) { return el.scrollWidth > el.clientWidth + 0.5; }); }
+        while (over() && size > 10) {
           size -= 0.5;
-          el.style.fontSize = size + 'px';
+          els.forEach(function (el) { el.style.fontSize = size + 'px'; });
         }
       });
     }
