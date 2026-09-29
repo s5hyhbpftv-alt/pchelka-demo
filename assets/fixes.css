@@ -571,3 +571,91 @@ header.site-header-brand .site-more-toggle {
 .do-go {
   display:none}
 }
+
+/* ── без декоративных цифр: номера направлений, групп и счётчики ────── */
+.dir-num,.dir-chips a span,.dir-groups li span,
+.svc-group-num,.svc-group-count,.do-num {
+  display:none!important}
+.dir-chips a {
+  padding:9px 16px}
+.dir-groups li {
+  padding:7px 14px}
+.svc-group-head {
+  grid-template-columns:1fr!important}
+.svc-group-head h3,.svc-group-head p {
+  grid-column:1!important}
+
+/* ── телефон: услуги аккуратнее ────────────────────────────────────── */
+@media (max-width:760px) {
+  /* работы направления — по две в ряд, а не по одной во весь экран */
+  .service-works {
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:10px!important}
+.service-works .work-tile.wcard {
+  width:auto!important;
+  padding-top:8px}
+.service-works .wc-title {
+  font-size:14px}
+.service-works .wc-body {
+  left:10px;
+  right:10px;
+  bottom:10px}
+.service-works .wc-go,.service-works .wc-count {
+  display:none}
+/* группы работ — плотнее */
+.svc-group {
+  padding:16px 14px}
+.svc-group-head {
+  margin-bottom:12px}
+.svc-chips {
+  gap:6px}
+/* разворот направления на «Услугах» */
+.dir-copy {
+  padding:22px 20px 24px}
+.dir-copy h2 {
+  font-size:26px;
+  margin:12px 0 10px}
+.dir-lead {
+  font-size:14px}
+.dir-groups {
+  margin-top:16px;
+  padding-top:16px;
+  gap:6px}
+.dir-groups li {
+  font-size:13px;
+  padding:6px 12px}
+/* быстрый переход по направлениям — компактнее */
+.dir-chips {
+  padding:6px}
+.dir-chips a {
+  padding:8px 13px;
+  font-size:12.5px}
+/* главная: карточки «Что мы делаем» */
+.do-body {
+  padding:10px 6px 8px}
+}
+/* шаги заказа — жёлтая метка вместо цифр */
+.service-step-num,.net-proud-num,.b2b-num {
+  display:none!important}
+.service-step {
+  position:relative;
+  padding-top:18px}
+.service-step::before {
+  content:"";
+  display:block;
+  width:28px;
+  height:5px;
+  margin-bottom:14px;
+  border-radius:99px;
+  background:var(--yellow)}
+.service-step h3 {
+  margin-top:0}
+@media (max-width:760px) {
+  .net-proud-row {
+  grid-template-columns:minmax(0,1fr) 40px!important;
+  grid-template-areas:"tag go" "copy copy"!important}
+}
+@media (min-width:761px) {
+  .net-proud-row {
+  grid-template-columns:140px minmax(0,1fr) 54px!important}
+}
