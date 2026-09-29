@@ -1149,7 +1149,20 @@
     var rot = 0, vel = 0, radius = 300, dragging = false, moved = false, lastX = 0, lastT = 0;
     var target = null, visible = false, last = 0, lastScroll = window.scrollY, hold = 0;
 
+    // каждая строка карточки — в одну строку: если не влезает, чуть уменьшаем шрифт
+    function fitText() {
+      root.querySelectorAll('.cgal-name, .cgal-addr, .cgal-hours').forEach(function (el) {
+        el.style.fontSize = '';
+        var size = parseFloat(getComputedStyle(el).fontSize);
+        while (el.scrollWidth > el.clientWidth + 0.5 && size > 10) {
+          size -= 0.5;
+          el.style.fontSize = size + 'px';
+        }
+      });
+    }
+
     function layout() {
+      fitText();
       var w = cards[0].offsetWidth || 220;
       // радиус — чтобы соседние карточки не наезжали друг на друга
       radius = Math.round(n * (w + 12) / (2 * Math.PI));
@@ -1296,6 +1309,7 @@
     } else visible = true;
     window.addEventListener('resize', function () { layout(); draw(); });
     layout(); draw(); fromHash(false);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitText);
     requestAnimationFrame(frame);
   }
 

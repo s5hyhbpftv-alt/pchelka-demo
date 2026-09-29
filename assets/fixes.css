@@ -325,3 +325,36 @@ header.site-header-brand .site-more-toggle {
 /* карусель ателье — без номеров на карточках */
 .cgal-num {
   display:none!important}
+
+/* карусель ателье: крупнее текст, каждая строка — ровно в одну строку */
+.cgal-card {
+  container-type:inline-size}
+.cgal-copy {
+  min-width:0;
+  gap:4px}
+.cgal-name,.cgal-addr,.cgal-hours {
+  display:block;
+  min-width:0;
+  max-width:100%;
+  overflow:hidden;
+  white-space:nowrap}
+.cgal-name {
+  font-size:21px}
+.cgal-addr {
+  font-size:15px}
+.cgal-hours {
+  font-size:14px}
+@media (min-width:761px) {
+  .cgal-name {
+  font-size:26px}
+.cgal-addr {
+  font-size:17px}
+.cgal-hours {
+  font-size:15px}
+}
+@media (max-width:370px) {
+  .addr-search input {
+  font-size:13px;
+  padding-left:16px;
+  padding-right:12px}
+}
