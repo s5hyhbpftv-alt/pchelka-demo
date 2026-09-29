@@ -697,6 +697,11 @@
             button.querySelector('strong').textContent = item.label;
             button.querySelector('span').textContent = item.addr + (item.tags ? ' · ' + item.tags : '');
             button.addEventListener('click', function () {
+              // орбита скрыта — ателье показывает карусель
+              if (getComputedStyle(root).display === 'none') {
+                document.dispatchEvent(new CustomEvent('pchelka:open-atelier', { detail: item.i }));
+                return;
+              }
               open(item.i);
               root.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
             });
@@ -1278,6 +1283,13 @@
       openSheet(i);
     }
     window.addEventListener('hashchange', function () { fromHash(true); });
+    document.addEventListener('pchelka:open-atelier', function (e) {
+      var i = e.detail;
+      if (!cards[i]) return;
+      rot = -i * step; target = null; draw();
+      root.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+      setTimeout(function () { openSheet(i); }, reduced ? 0 : 450);
+    });
 
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }).observe(root);

@@ -8548,7 +8548,7 @@ section.b2b.section {
 /* ── «Ателье» на телефоне: Circular Gallery ───────────────────────── */
 .cgal {
   display:none}
-@media (max-width:760px) {
+@media all {
   .coaches-directory .orbit {
   display:none}
 .cgal {
@@ -8736,7 +8736,7 @@ section.b2b.section {
   .cgal-sheet[open] {
   animation:none}
 }
-@media (max-width:760px) {
+@media all {
   .cgal {
   --w:min(50vw,210px);
   margin:0 -12px}
@@ -8748,7 +8748,7 @@ section.b2b.section {
 }
 
 /* галерея ателье на телефоне: светлая, крупнее, карточка раскрывается на весь экран */
-@media (max-width:760px) {
+@media all {
   .cgal {
   --w:min(64vw,260px);
   margin:0 -12px;
@@ -8815,7 +8815,7 @@ section.b2b.section {
   .cgal-sheet,.cgal-sheet .orbit-card>img,.cgal-sheet .orbit-card-body {
   transition:none}
 }
-@media (max-width:760px) {
+@media all {
   .cgal {
   margin:0 -24px}
 .cgal-bar {
@@ -8824,7 +8824,7 @@ section.b2b.section {
 
 /* галерея ателье на телефоне — светлые карточки в цветах проекта,
    раскрытая карточка висит по центру с полями вокруг */
-@media (max-width:760px) {
+@media all {
   .cgal-card {
   display:flex;
   flex-direction:column;
@@ -8922,7 +8922,7 @@ section.b2b.section {
   color:var(--ink);
   box-shadow:0 4px 14px #464d7726}
 }
-@media (max-width:760px) {
+@media all {
   .cgal-sheet {
   height:fit-content}
 }
