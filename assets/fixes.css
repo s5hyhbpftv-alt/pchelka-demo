@@ -402,3 +402,66 @@ header.site-header-brand .site-more-toggle {
 
 .nowrap {
   white-space:nowrap}
+
+/* «О сети»: вместо сплошного текста — короткая строка и плитки */
+.net-story-lead {
+  margin:0 0 22px!important;
+  color:var(--ink)!important;
+  font-size:18px!important;
+  line-height:1.5!important}
+.net-do-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px}
+.net-do {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  border-radius:18px;
+  background:#e2e2f3;
+  padding:16px 18px;
+  color:var(--ink);
+  text-decoration:none;
+  transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.net-do:nth-child(4n+2) {
+  background:#f6eaa2}
+.net-do:nth-child(4n+3) {
+  background:#dce7dc}
+.net-do:nth-child(4n) {
+  background:#eee0d7}
+.net-do:hover {
+  transform:translateY(-3px);
+  box-shadow:0 12px 26px #464d7722}
+.net-do b {
+  font-family:var(--font-heading);
+  font-size:17px;
+  font-weight:500;
+  letter-spacing:-.3px}
+.net-do span {
+  color:#464d77b3;
+  font-size:13px;
+  line-height:1.45}
+.net-story-note {
+  margin:16px 0 0!important;
+  color:#6d6e83!important;
+  font-size:13px!important}
+@media (max-width:760px) {
+  .net-do-grid {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px}
+.net-do {
+  padding:12px 12px 13px;
+  border-radius:16px}
+.net-do b {
+  font-size:15px;
+  line-height:1.2}
+.net-do span {
+  font-size:12px;
+  line-height:1.35}
+.net-story-lead {
+  font-size:16px!important}
+}
+@media (max-width:340px) {
+  .net-do-grid {
+  grid-template-columns:1fr}
+}
