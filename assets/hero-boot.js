@@ -56,7 +56,8 @@
   }
 
   var visual = document.querySelector('.hero-visual');
-  if (visual && !visual.querySelector('video.hero-video')) {
+  // статичный первый экран с логотипом — без ролика
+  if (visual && !visual.closest('.hero-static') && !visual.querySelector('video.hero-video')) {
     var img = visual.querySelector('img.hero-photo');
     var video = document.createElement('video');
     video.className = 'hero-photo hero-video';

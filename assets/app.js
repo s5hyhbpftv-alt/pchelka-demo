@@ -1374,9 +1374,9 @@
     setupToTop();
     setupCgal();
     setupNewsletter();
-    setupLetters();
+    // пчёлка на буквах в подвале убрана по просьбе заказчика
     var boot=document.createElement('script');
-    boot.src='assets/hero-boot.js?v=motion-10';
+    boot.src='assets/hero-boot.js?v=fix1';
     document.body.appendChild(boot);
   }
 

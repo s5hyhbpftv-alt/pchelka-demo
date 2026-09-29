@@ -1,0 +1,72 @@
+/* Правки по замечаниям заказчика (сентябрь 2026) */
+
+/* ── первый экран: статичный, жёлтый, с логотипом ─────────────────── */
+.hero.hero-static .hero-visual {
+  background:radial-gradient(ellipse at 50% 38%,#fff0a3 0,#ffdb1e 55%,#f5c400 100%)}
+.hero.hero-static .hero-visual::after,
+.hero.hero-static .photo-shade {
+  display:none}
+.hero.hero-static .hero-comb {
+  position:absolute;
+  inset:0;
+  opacity:.1;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'%3E%3Cpath d='M28 0l28 16v32L28 64 0 48V16zM28 64l28 16v32M28 64L0 80v32' fill='none' stroke='%23464d77' stroke-width='1.4'/%3E%3C/svg%3E");
+  background-size:56px 96px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 45%,#0000 20%,#000 75%);
+  mask-image:radial-gradient(ellipse at 50% 45%,#0000 20%,#000 75%)}
+.hero.hero-static .hero-copy {
+  color:var(--ink);
+  justify-content:center;
+  gap:0}
+.hero.hero-static .hero-logo {
+  display:block;
+  width:clamp(170px,19vw,270px);
+  height:auto;
+  margin:0 0 8px;
+  filter:drop-shadow(0 18px 30px #464d7733)}
+.hero.hero-static h1 {
+  color:var(--ink);
+  margin:14px 0 14px}
+.hero.hero-static .hero-copy>p {
+  color:#464d77d9;
+  max-width:640px;
+  margin:0 0 26px}
+.hero.hero-static .hero-call {
+  border-color:#464d7740;
+  background:#ffffff66;
+  color:var(--ink)}
+.hero.hero-static .hero-call:hover {
+  background:var(--ink);
+  color:var(--yellow)}
+.hero.hero-static .hero-cta .arrow-fill-button {
+  --fill-bg:var(--ink);
+  --fill-ink:var(--yellow);
+  background:var(--ink);
+  color:var(--base)}
+.hero.hero-static .hero-facts {
+  margin-top:22px;
+  color:#464d77e6}
+.hero.hero-static .hero-facts li::before {
+  background:var(--ink);
+  box-shadow:none}
+/* шапка поверх жёлтого — тёмный текст */
+header.site-header-brand,
+header.site-header-brand .logo {
+  color:var(--ink);
+  text-shadow:none}
+header.site-header-brand .site-sign-in {
+  border-color:#464d7740;
+  color:var(--ink)}
+header.site-header-brand .site-header-menu {
+  background:#ffffff73}
+header.site-header-brand .site-menu-row a,
+header.site-header-brand .site-more-toggle {
+  color:var(--ink)}
+@media (max-width:760px) {
+  .hero.hero-static .hero-logo {
+  width:150px}
+}
+
+/* ── подвал: без пчёлки на буквах ─────────────────────────────────── */
+.letter-girl,video.floor-src {
+  display:none!important}
