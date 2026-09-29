@@ -321,3 +321,7 @@ header.site-header-brand .site-more-toggle {
 .cgal-sheet .orbit-card>img {
   height:250px}
 }
+
+/* карусель ателье — без номеров на карточках */
+.cgal-num {
+  display:none!important}
