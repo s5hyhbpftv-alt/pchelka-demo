@@ -219,3 +219,58 @@ header.site-header-brand .site-more-toggle {
 .svc-groups:not(:has(>.svc-group:nth-child(3):last-child))>.svc-group:last-child:nth-child(odd) {
   grid-column:1/-1}
 }
+
+/* ── «О сети»: история ─────────────────────────────────────────────── */
+.net-story {
+  display:grid;
+  grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+  gap:clamp(28px,5vw,80px);
+  align-items:center;
+  max-width:1352px;
+  margin:clamp(56px,7vw,96px) auto 0;
+  padding:0 32px}
+.net-story-year {
+  position:relative;
+  font-family:var(--font-heading);
+  font-size:clamp(96px,15vw,220px);
+  font-weight:600;
+  line-height:.9;
+  letter-spacing:-.06em;
+  color:var(--ink)}
+.net-story-year span {
+  display:block;
+  margin-bottom:.1em;
+  font-family:Georgia,serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:.26em;
+  letter-spacing:0;
+  color:#464d77a6}
+.net-story-year::after {
+  content:"";
+  position:absolute;
+  left:.04em;
+  bottom:-.12em;
+  width:1.6em;
+  height:.1em;
+  border-radius:99px;
+  background:var(--yellow)}
+.net-story h2 {
+  margin:18px 0 20px;
+  font-size:clamp(32px,3.6vw,52px);
+  letter-spacing:-1.6px;
+  line-height:1.08}
+.net-story-copy p {
+  margin:0 0 14px;
+  color:#5c5f7e;
+  font-size:16px;
+  line-height:1.8}
+@media (max-width:900px) {
+  .net-story {
+  grid-template-columns:1fr;
+  padding:0 24px}
+}
+@media (min-width:761px) {
+  .net-hero .service-facts {
+  grid-template-columns:repeat(4,minmax(0,1fr))}
+}
