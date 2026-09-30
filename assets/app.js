@@ -854,7 +854,8 @@
       var layer = vis.querySelector('.mantality-orbit-badge-layer');
       var outer = Array.prototype.slice.call(vis.querySelectorAll('.mantality-orbit-avatar'));
       var inner = Array.prototype.slice.call(vis.querySelectorAll('.mantality-orbit-badge'));
-      if (!svg || !layer || reduced) return;
+      // Static compositions use the responsive positions from the stylesheet.
+      if (!svg || !layer || reduced || vis.hasAttribute('data-orbit-static')) return;
       var shift = 0, last = 0, visible = true, geo = null;
 
       function measure() {

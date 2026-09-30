@@ -7,10 +7,10 @@
   align-items: center;
 }
 .home-refined .hero.home-hero .hero-visual {
-  background: radial-gradient(ellipse at 50% 42%, #fff0a0 0, #ffe461 56%, #ffdb36 100%);
+  background: radial-gradient(ellipse at 50% 42%, #fff8dc 0%, #fff0b5 58%, #ffe68a 100%);
 }
 .home-refined .hero.home-hero .hero-comb {
-  opacity: .055;
+  opacity: .045;
   background-size: 84px 144px;
 }
 .home-refined .hero.home-hero .hero-copy {
@@ -18,7 +18,7 @@
   max-height: none;
 }
 .home-refined .hero.home-hero .hero-logo {
-  width: 116px;
+  width: 164px;
   margin: 0 0 24px;
   filter: drop-shadow(0 6px 12px #464d7714);
 }
@@ -61,7 +61,7 @@
 }
 @media (max-width: 900px) {
   .home-refined .hero.home-hero { padding-top: 40px; }
-  .home-refined .hero.home-hero .hero-logo { width: 104px; margin-bottom: 22px; }
+  .home-refined .hero.home-hero .hero-logo { width: 144px; margin-bottom: 22px; }
   .home-refined .hero.home-hero h1 { font-size: clamp(36px, 5.6vw, 50px); letter-spacing: -1.5px; }
 }
 @media (max-width: 540px) {
@@ -69,7 +69,7 @@
     min-height: 0;
     padding: 30px 20px 32px;
   }
-  .home-refined .hero.home-hero .hero-logo { width: 92px; margin-bottom: 22px; }
+  .home-refined .hero.home-hero .hero-logo { width: 128px; margin-bottom: 20px; }
   .home-refined .hero.home-hero h1 {
     font-size: clamp(31px, 8.2vw, 43px);
     line-height: 1.12;
@@ -110,4 +110,50 @@
     color: var(--ink);
   }
   .home-refined .hero.home-hero .hero-facts { margin-top: 18px; }
+}
+
+/* About the network: two readable text columns beneath the section heading. */
+.home-refined #about {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 36px;
+}
+.home-refined #about .about-content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 48px;
+  width: 100%;
+  max-width: none;
+  justify-self: stretch;
+}
+.home-refined #about .about-content > p { margin: 0; }
+.home-refined #about .about-lead {
+  grid-column: 1 / -1;
+  max-width: 900px;
+}
+.home-refined #about .about-stats {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+}
+@media (min-width: 761px) {
+  .home-refined #about .about-heading {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 48px;
+    align-items: end;
+  }
+  .home-refined #about .about-heading > .eyebrow { grid-column: 1 / -1; }
+  .home-refined #about .community-proof { margin-bottom: 8px; }
+}
+@media (max-width: 760px) {
+  .home-refined #about { gap: 28px; }
+  .home-refined #about .about-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Mirror the static outer arc on mobile; desktop left offsets must not leak in. */
+@media (max-width: 760px) {
+  [data-orbit-static] .mantality-orbit-avatar-5,
+  [data-orbit-static] .mantality-orbit-avatar-6 { left: auto; }
 }
