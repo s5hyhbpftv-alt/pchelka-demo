@@ -1,0 +1,89 @@
+/* The same navigation geometry and surface on every page. */
+html { scrollbar-gutter: stable; }
+header.site-header {
+  position: relative;
+  inset: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  height: 96px;
+  min-height: 96px;
+  margin: 0 36px;
+  padding: 0;
+  gap: 24px;
+  color: var(--ink);
+  background: var(--base);
+}
+header.site-header .logo { color: var(--ink); text-shadow: none; }
+header.site-header .site-header-menu {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  background: #edecf5;
+  color: var(--ink);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+header.site-header .site-menu-row a,
+header.site-header .site-more-toggle,
+header.site-header .site-more-pages a { color: var(--ink); }
+header.site-header .site-menu-row a[aria-current="page"],
+header.site-header .site-more-toggle.is-current { background: var(--base); }
+header.site-header .site-sign-in { color: var(--ink); border-color: #464d7733; }
+header.site-header .site-more-pages a:hover { background: #464d7710; }
+/* A dropdown overlays the content; opening it must not move the header. */
+header.site-header .site-more-pages {
+  position: absolute;
+  inset: 100% 0 auto;
+  margin: 6px 0 0;
+  padding: 8px;
+  border: 1px solid #464d7720;
+  border-radius: 20px;
+  background: #f2f1f8;
+  box-shadow: 0 12px 28px #464d771a;
+  max-height: calc(100svh - 160px);
+  overflow-y: auto;
+}
+@media (min-width: 901px) and (max-width: 1180px) {
+  header.site-header { gap: 16px; }
+  header.site-header .site-header-menu {
+    position: relative;
+    inset: auto;
+    transform: none;
+    margin-left: auto;
+  }
+  header.site-header .site-sign-in { display: none; }
+}
+@media (max-width: 900px) {
+  header.site-header {
+    height: 146px;
+    min-height: 146px;
+    margin: 0 32px;
+    padding: 16px 0 68px;
+    gap: 16px;
+  }
+  header.site-header .site-header-menu {
+    position: absolute;
+    top: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
+  header.site-header .site-more-pages { max-height: calc(100svh - 156px); }
+}
+@media (max-width: 540px) {
+  header.site-header { margin: 0 24px; height: 138px; min-height: 138px; padding: 12px 0 66px; }
+  header.site-header .logo-dot,
+  header.site-header .site-sign-in { display: none; }
+  header.site-header .site-header-menu { top: 78px; }
+  header.site-header .site-header-actions { margin-left: auto; }
+}
+@media (max-width: 360px) {
+  header.site-header { margin-inline: 20px; }
+  header.site-header .site-menu-row a,
+  header.site-header .site-more-toggle { padding-inline: 8px; font-size: 10px; }
+}
