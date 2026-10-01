@@ -56,7 +56,7 @@
 
   /* ---------- счётчики в блоке «О мастерской» ---------- */
   function setupCounters() {
-    var nodes = document.querySelectorAll('.about-stats strong[aria-label]');
+    var nodes = document.querySelectorAll('.about-stats strong');
     if (!nodes.length) return;
 
     function run(strong) {
@@ -95,7 +95,10 @@
 
     Array.prototype.forEach.call(nodes, function (strong) {
       var span = strong.querySelector('span');
-      if (span && !reduced) span.textContent = '0' + (strong.getAttribute('aria-label') || '').replace(/[\d\s]/g, '');
+      if (!span) return;
+      // Use the displayed value for both the animation and its accessible label.
+      strong.setAttribute('aria-label', span.textContent.trim());
+      if (!reduced) span.textContent = '0' + strong.getAttribute('aria-label').replace(/[\d\s]/g, '');
       observer.observe(strong);
     });
   }
