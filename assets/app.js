@@ -653,7 +653,7 @@
           var tags = Array.prototype.map.call(node.querySelectorAll('.orbit-tags li'), function (li) {
             return li.textContent.trim();
           });
-          var phone = text('a[href^="tel:"]');
+          var phone = Array.prototype.map.call(node.querySelectorAll('a[href^="tel:"]'), function (a) { return a.textContent; }).join(' ');
           var blob = [text('.orbit-label'), text('.orbit-short'), text('.orbit-address'), tags.join(' '), phone]
             .join(' ').toLowerCase().replace(/ё/g, 'е');
           return {
@@ -685,10 +685,10 @@
           list.innerHTML = '';
           if (!q) {
             list.hidden = true;
-            meta.textContent = '13 адресов по городу';
+            meta.textContent = n + ' ателье в трёх городах';
             return;
           }
-          meta.textContent = hits.length ? ('Нашли ' + hits.length + ' из 13') : 'Ничего не нашли. Попробуйте улицу или услугу: ремонт, мех, шторы.';
+          meta.textContent = hits.length ? ('Нашли ' + hits.length + ' из ' + n) : 'Ничего не нашли. Попробуйте улицу или услугу: ремонт, мех, шторы.';
           hits.forEach(function (item) {
             var li = document.createElement('li');
             var button = document.createElement('button');
@@ -717,7 +717,7 @@
           var only = list.querySelector('button');
           if (only && list.children.length === 1) only.click();
         });
-        meta.textContent = '13 адресов по городу';
+        meta.textContent = n + ' ателье в трёх городах';
       }
     });
   }
