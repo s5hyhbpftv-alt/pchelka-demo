@@ -1150,25 +1150,8 @@
     var rot = 0, vel = 0, radius = 300, dragging = false, moved = false, lastX = 0, lastT = 0;
     var target = null, visible = false, last = 0, lastScroll = window.scrollY, hold = 0;
 
-    // каждая строка карточки — в одну строку: если не влезает, чуть уменьшаем шрифт
-    // один размер на все карточки: подбираем по самой длинной строке каждого вида,
-    // иначе соседние карточки выглядят набранными разным шрифтом
-    function fitText() {
-      ['.cgal-name', '.cgal-addr', '.cgal-hours'].forEach(function (sel) {
-        var els = Array.prototype.slice.call(root.querySelectorAll(sel));
-        if (!els.length) return;
-        els.forEach(function (el) { el.style.fontSize = ''; });
-        var size = parseFloat(getComputedStyle(els[0]).fontSize);
-        function over() { return els.some(function (el) { return el.scrollWidth > el.clientWidth + 0.5; }); }
-        while (over() && size > 10) {
-          size -= 0.5;
-          els.forEach(function (el) { el.style.fontSize = size + 'px'; });
-        }
-      });
-    }
-
+    // Keep a consistent readable size; concise labels are defined in the card markup.
     function layout() {
-      fitText();
       var w = cards[0].offsetWidth || 220;
       // радиус — чтобы соседние карточки не наезжали друг на друга
       radius = Math.round(n * (w + 12) / (2 * Math.PI));
@@ -1315,7 +1298,7 @@
     } else visible = true;
     window.addEventListener('resize', function () { layout(); draw(); });
     layout(); draw(); fromHash(false);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitText);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
     requestAnimationFrame(frame);
   }
 
