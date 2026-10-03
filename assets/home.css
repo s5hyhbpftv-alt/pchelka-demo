@@ -265,7 +265,14 @@
   .home-refined .do-card:hover { transform: none; box-shadow: none; }
   .home-refined .about-stats { gap: 8px; }
   .home-refined .about-stats > div { padding: 14px 12px; }
-  .home-refined .about-stats dd > span { font-size: 11px; line-height: 1.4; }
+  .home-refined .about-stats dd > span {
+    min-width: 0;
+    font-size: 11px;
+    line-height: 1.4;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
 }
 
 @media (max-width: 360px) {
