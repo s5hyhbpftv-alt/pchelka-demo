@@ -489,6 +489,15 @@
     });
   }
 
+  // Address links use stable IDs even after a branch leaves the network.
+  function atelierHashIndex(items) {
+    var match = /^#tochka-(\d+)$/.exec(location.hash);
+    if (!match) return -1;
+    return items.findIndex(function (item) {
+      return +item.getAttribute('data-i') === +match[1] - 1;
+    });
+  }
+
   // «Radial Orbital Timeline»: адреса кружат по орбите вокруг знака;
   // клик уводит точку наверх, останавливает вращение и открывает карточку
   function setupOrbit() {
@@ -649,13 +658,13 @@
       window.addEventListener('resize', layout);
       layout();
       // ссылка вида ateleye.html#tochka-4 сразу открывает нужное ателье
-      var m = /^#tochka-(\d+)$/.exec(location.hash);
-      if (m && nodes[m[1] - 1]) { open(m[1] - 1); rot = 270 - ((m[1] - 1) / n) * 360; tween = null; }
+      var initialIndex = atelierHashIndex(nodes);
+      if (initialIndex >= 0) { open(initialIndex); rot = 270 - (initialIndex / n) * 360; tween = null; }
       // адрес из подвала на этой же странице: открываем карточку и едем к орбите
       window.addEventListener('hashchange', function () {
-        var h = /^#tochka-(\d+)$/.exec(location.hash);
-        if (h && nodes[h[1] - 1]) {
-          open(h[1] - 1);
+        var index = atelierHashIndex(nodes);
+        if (index >= 0) {
+          open(index);
           root.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
         }
       });
@@ -1245,7 +1254,7 @@
     }, { passive: true });
 
     function openSheet(i) {
-      var src = document.getElementById('orbit-card-' + i);
+      var src = document.getElementById('orbit-card-' + cards[i].getAttribute('data-i'));
       if (!src) return;
       body.innerHTML = '';
       var card = src.cloneNode(true);
@@ -1299,9 +1308,8 @@
     sheet.addEventListener('close', function () { hold = performance.now() + 3000; });
 
     function fromHash(scroll) {
-      var h = /^#tochka-(\d+)$/.exec(location.hash);
-      if (!h || !cards[h[1] - 1] || getComputedStyle(root).display === 'none') return;
-      var i = h[1] - 1;
+      var i = atelierHashIndex(cards);
+      if (i < 0 || getComputedStyle(root).display === 'none') return;
       rot = -i * step; target = null; draw();
       if (scroll) root.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
       openSheet(i);
