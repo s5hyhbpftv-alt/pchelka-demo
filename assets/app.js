@@ -6,6 +6,25 @@
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* Keep mobile reading and keyboard order aligned with the service-first layout. */
+  function setupHomeSectionOrder() {
+    if (!document.body.classList.contains('home-refined')) return;
+    var addresses = document.querySelector('.social-proof');
+    var services = document.getElementById('offerings');
+    if (!addresses || !services) return;
+    var addressPosition = document.createComment('home addresses position');
+    var servicePosition = document.createComment('home services position');
+    addresses.before(addressPosition);
+    services.before(servicePosition);
+    var mobile = window.matchMedia('(max-width: 760px)');
+    function arrange() {
+      addressPosition.after(mobile.matches ? services : addresses);
+      servicePosition.after(mobile.matches ? addresses : services);
+    }
+    arrange();
+    mobile.addEventListener('change', arrange);
+  }
+
   /* ---------- вопросы и ответы ---------- */
   function setupFaq() {
     var items = document.querySelectorAll('.faq-item > button[aria-controls]');
@@ -1377,6 +1396,7 @@
   }
 
   function init() {
+    setupHomeSectionOrder();
     setupFaq();
     setupMoreMenu();
     setupCounters();
